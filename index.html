@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim Pesan Anonim</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 14px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: #007BFF;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #thanksMessage {
+            display: none;
+        }
+
+        #thanksMessage h2 {
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kirim Pesan Anonim</h1>
+        <form id="messageForm">
+            <textarea id="messageInput" placeholder="Tulis pesan Anda..." required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+        <div id="thanksMessage">
+            <h2>Terima Kasih!</h2>
+            <p>Pesan Anda telah terkirim.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const BOT_TOKEN = "7820486438:AAFPLSlcRDK6l882rRcFikvKEO0-xcVX944"; // Ganti dengan token bot Telegram Anda
+            const CHAT_ID = "7843258994"; // Ganti dengan chat ID Anda
+
+            const messageForm = document.getElementById("messageForm");
+            const messageInput = document.getElementById("messageInput");
+            const thanksMessage = document.getElementById("thanksMessage");
+
+            // Fungsi untuk mengirim gambar pesan ke Telegram
+            const sendMessageAsImage = async (message) => {
+                try {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = 800;
+                    canvas.height = 400;
+                    const ctx = canvas.getContext("2d");
+
+                    // Gambar latar belakang
+                    ctx.fillStyle = "#ffffff";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // Teks di tengah gambar
+                    ctx.fillStyle = "#000000";
+                    ctx.font = "30px Arial";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText(message, canvas.width / 2, canvas.height / 2);
+
+                    // Konversi gambar ke Blob
+                    const base64Image = canvas.toDataURL("image/png").split(",")[1];
+                    const blob = new Blob([Uint8Array.from(atob(base64Image), (c) => c.charCodeAt(0))], { type: "image/png" });
+
+                    // Kirim gambar ke Telegram
+                    const formData = new FormData();
+                    formData.append("chat_id", CHAT_ID);
+                    formData.append("photo", blob, "message.png");
+
+                    const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+                        method: "POST",
+                        body: formData,
+                    });
+
+                    const result = await response.json();
+                    if (result.ok) {
+                        console.log("Pesan berhasil dikirim sebagai gambar!");
+                    } else {
+                        console.error("Error dari Telegram API:", result);
+                    }
+                } catch (error) {
+                    console.error("Gagal mengirim pesan:", error);
+                }
+            };
+
+            // Event listener untuk form kirim pesan
+            messageForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const message = messageInput.value.trim();
+                if (message) {
+                    sendMessageAsImage(message); // Kirim pesan sebagai gambar
+                    messageInput.value = ""; // Kosongkan input
+                    messageForm.style.display = "none"; // Sembunyikan form
+                    thanksMessage.style.display = "block"; // Tampilkan pesan terima kasih
+                    setTimeout(() => {
+                        thanksMessage.style.display = "none"; // Sembunyikan pesan terima kasih
+                        messageForm.style.display = "block"; // Tampilkan kembali form
+                    }, 3000); // 3 detik
+                }
+            });
+        });
+    </script>
+</body>
+</html>
