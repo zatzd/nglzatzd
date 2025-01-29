@@ -1,1 +1,307 @@
-<script language=JavaScript> html='%3C%21DOCTYPE%20html%3E%0D%0A%3Chtml%20lang%3D%22en%22%3E%0D%0A%3Chead%3E%0D%0A%20%20%20%20%3Cmeta%20charset%3D%22UTF-8%22%3E%0D%0A%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%3E%0D%0A%20%20%20%20%3Ctitle%3EKirim%20Pesan%20Anonim%3C%2Ftitle%3E%0D%0A%20%20%20%20%3Cstyle%3E%0D%0A%20%20%20%20%20%20%20%20body%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20font-family%3A%20Arial%2C%20sans-serif%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20display%3A%20flex%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20justify-content%3A%20center%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20align-items%3A%20center%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20100vh%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20margin%3A%200%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20background%3A%20linear-gradient%28135deg%2C%20%23007BFF%2C%20%230056b3%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20color%3A%20%23333%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20.container%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100%25%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20max-width%3A%20400px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%2020px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20background%3A%20%23fff%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20border-radius%3A%2015px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20box-shadow%3A%200px%2010px%2015px%20rgba%280%2C%200%2C%200%2C%200.2%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20text-align%3A%20center%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20h1%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20font-size%3A%2024px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20margin-bottom%3A%2020px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20color%3A%20%230056b3%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20textarea%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100%25%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20120px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20margin-bottom%3A%2015px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%2010px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20border%3A%201px%20solid%20%23ddd%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20border-radius%3A%2010px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20font-size%3A%2014px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20resize%3A%20none%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20button%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100%25%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%2012px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20font-size%3A%2016px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20font-weight%3A%20bold%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20color%3A%20%23fff%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20background%3A%20%23007BFF%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20border%3A%20none%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20border-radius%3A%2010px%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20cursor%3A%20pointer%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20button%3Ahover%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20background%3A%20%230056b3%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20%23thanksMessage%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20display%3A%20none%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%20%20%20%20%20%20%20%20%23thanksMessage%20h2%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20color%3A%20%2328a745%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%3C%2Fstyle%3E%0D%0A%3C%2Fhead%3E%0D%0A%3Cbody%3E%0D%0A%20%20%20%20%3Cdiv%20class%3D%22container%22%3E%0D%0A%20%20%20%20%20%20%20%20%3Ch1%3EKirim%20Pesan%20Anonim%3C%2Fh1%3E%0D%0A%20%20%20%20%20%20%20%20%3Cform%20id%3D%22messageForm%22%3E%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20id%3D%22messageInput%22%20placeholder%3D%22Tulis%20pesan%20Anda...%22%20required%3E%3C%2Ftextarea%3E%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20type%3D%22submit%22%3EKirim%3C%2Fbutton%3E%0D%0A%20%20%20%20%20%20%20%20%3C%2Fform%3E%0D%0A%20%20%20%20%20%20%20%20%3Cdiv%20id%3D%22thanksMessage%22%3E%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ch2%3ETerima%20Kasih%21%3C%2Fh2%3E%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%3EPesan%20Anda%20telah%20terkirim.%3C%2Fp%3E%0D%0A%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0D%0A%20%20%20%20%3C%2Fdiv%3E%0D%0A%0D%0A%20%20%20%20%3Cscript%3E%0D%0A%20%20%20%20%20%20%20%20document.addEventListener%28%22DOMContentLoaded%22%2C%20%28%29%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20BOT_TOKEN%20%3D%20%227820486438%3AAAFPLSlcRDK6l882rRcFikvKEO0-xcVX944%22%3B%20%2F%2F%20Ganti%20dengan%20token%20bot%20Telegram%20Anda%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20CHAT_ID%20%3D%20%227843258994%22%3B%20%2F%2F%20Ganti%20dengan%20chat%20ID%20Anda%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20messageForm%20%3D%20document.getElementById%28%22messageForm%22%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20messageInput%20%3D%20document.getElementById%28%22messageInput%22%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20thanksMessage%20%3D%20document.getElementById%28%22thanksMessage%22%29%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Fungsi%20untuk%20mengirim%20gambar%20pesan%20ke%20Telegram%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20sendMessageAsImage%20%3D%20async%20%28message%29%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20canvas%20%3D%20document.createElement%28%22canvas%22%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20canvas.width%20%3D%20800%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20canvas.height%20%3D%20400%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20ctx%20%3D%20canvas.getContext%28%222d%22%29%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Gambar%20latar%20belakang%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ctx.fillStyle%20%3D%20%22%23ffffff%22%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ctx.fillRect%280%2C%200%2C%20canvas.width%2C%20canvas.height%29%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Teks%20di%20tengah%20gambar%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ctx.fillStyle%20%3D%20%22%23000000%22%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ctx.font%20%3D%20%2230px%20Arial%22%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ctx.textAlign%20%3D%20%22center%22%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ctx.textBaseline%20%3D%20%22middle%22%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ctx.fillText%28message%2C%20canvas.width%20%2F%202%2C%20canvas.height%20%2F%202%29%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Konversi%20gambar%20ke%20Blob%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20base64Image%20%3D%20canvas.toDataURL%28%22image%2Fpng%22%29.split%28%22%2C%22%29%5B1%5D%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20blob%20%3D%20new%20Blob%28%5BUint8Array.from%28atob%28base64Image%29%2C%20%28c%29%20%3D%3E%20c.charCodeAt%280%29%29%5D%2C%20%7B%20type%3A%20%22image%2Fpng%22%20%7D%29%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Kirim%20gambar%20ke%20Telegram%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20formData%20%3D%20new%20FormData%28%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20formData.append%28%22chat_id%22%2C%20CHAT_ID%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20formData.append%28%22photo%22%2C%20blob%2C%20%22message.png%22%29%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20response%20%3D%20await%20fetch%28%60https%3A%2F%2Fapi.telegram.org%2Fbot%24%7BBOT_TOKEN%7D%2FsendPhoto%60%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20method%3A%20%22POST%22%2C%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20body%3A%20formData%2C%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20result%20%3D%20await%20response.json%28%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28result.ok%29%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.log%28%22Pesan%20berhasil%20dikirim%20sebagai%20gambar%21%22%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error%28%22Error%20dari%20Telegram%20API%3A%22%2C%20result%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20%28error%29%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20console.error%28%22Gagal%20mengirim%20pesan%3A%22%2C%20error%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%3B%0D%0A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20Event%20listener%20untuk%20form%20kirim%20pesan%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20messageForm.addEventListener%28%22submit%22%2C%20%28e%29%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.preventDefault%28%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20message%20%3D%20messageInput.value.trim%28%29%3B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20%28message%29%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20sendMessageAsImage%28message%29%3B%20%2F%2F%20Kirim%20pesan%20sebagai%20gambar%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20messageInput.value%20%3D%20%22%22%3B%20%2F%2F%20Kosongkan%20input%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20messageForm.style.display%20%3D%20%22none%22%3B%20%2F%2F%20Sembunyikan%20form%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20thanksMessage.style.display%20%3D%20%22block%22%3B%20%2F%2F%20Tampilkan%20pesan%20terima%20kasih%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20setTimeout%28%28%29%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20thanksMessage.style.display%20%3D%20%22none%22%3B%20%2F%2F%20Sembunyikan%20pesan%20terima%20kasih%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20messageForm.style.display%20%3D%20%22block%22%3B%20%2F%2F%20Tampilkan%20kembali%20form%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%203000%29%3B%20%2F%2F%203%20detik%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0D%0A%20%20%20%20%20%20%20%20%7D%29%3B%0D%0A%20%20%20%20%3C%2Fscript%3E%0D%0A%3C%2Fbody%3E%0D%0A%3C%2Fhtml%3E';d=unescape(html);document.write(d);</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGL Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            padding: 10px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .form-group button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #f5f5f5;
+            margin-top: 20px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .user-page {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .message-form textarea {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="pageTitle">NGL Sederhana</h1>
+        </header>
+        <!-- Login -->
+        <div id="loginForm" class="form-group">
+            <h2>Login</h2>
+            <label for="loginUsername">Nama Pengguna</label>
+            <input type="text" id="loginUsername" placeholder="Masukkan nama pengguna">
+            <button onclick="login()">Login</button>
+            <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar</a></p>
+        </div>
+
+        <!-- Registrasi -->
+        <div id="registerForm" class="form-group hidden">
+            <h2>Daftar</h2>
+            <label for="registerUsername">Nama Pengguna</label>
+            <input type="text" id="registerUsername" placeholder="Masukkan nama pengguna">
+            <label for="chatId">Chat ID Telegram</label>
+            <input type="text" id="registerChatId" placeholder="Masukkan chat ID Telegram">
+            <button onclick="register()">Daftar</button>
+        </div>
+
+        <!-- Halaman Pengguna -->
+        <div id="userPage" class="hidden user-page">
+            <h2>Selamat Datang, <span id="usernameDisplay"></span></h2>
+            <p>Bagikan link Anda: <a id="userLink" target="_blank"></a></p>
+            <p>Chat ID Anda: <span id="chatIdDisplay"></span></p>
+            <label for="backgroundInput">URL Gambar Latar</label>
+            <input type="text" id="backgroundInput" placeholder="Masukkan URL gambar latar">
+            <button onclick="setBackground()">Atur Background</button>
+            <label for="chatIdSettings">Chat ID Baru</label>
+            <input type="text" id="chatIdSettings" placeholder="Masukkan Chat ID baru">
+            <button onclick="updateChatId()">Simpan Chat ID</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Kirim Pesan -->
+        <div id="sendMessageForm" class="form-group hidden">
+            <h2>Kirim Pesan Anonim ke <span id="sendToUser"></span></h2>
+            <textarea id="messageInput" placeholder="Tulis pesan Anda..."></textarea>
+            <button onclick="sendMessage()">Kirim Pesan</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 - NGL Sederhana</p>
+    </footer>
+
+    <script>
+        const users = JSON.parse(localStorage.getItem("users")) || {};
+
+        const loginForm = document.getElementById("loginForm");
+        const registerForm = document.getElementById("registerForm");
+        const userPage = document.getElementById("userPage");
+        const sendMessageForm = document.getElementById("sendMessageForm");
+
+        const usernameDisplay = document.getElementById("usernameDisplay");
+        const userLink = document.getElementById("userLink");
+        const chatIdDisplay = document.getElementById("chatIdDisplay");
+        const sendToUser = document.getElementById("sendToUser");
+
+        function showRegister() {
+            loginForm.classList.add("hidden");
+            registerForm.classList.remove("hidden");
+        }
+
+        function register() {
+            const username = document.getElementById("registerUsername").value.trim();
+            const chatId = document.getElementById("registerChatId").value.trim();
+
+            if (username && chatId) {
+                if (!users[username]) {
+                    users[username] = { chatId, background: "" };
+                    localStorage.setItem("users", JSON.stringify(users));
+                    createUserPage(username);
+                    loadUserPage(username);
+                } else {
+                    alert("Nama pengguna sudah terdaftar.");
+                }
+            } else {
+                alert("Harap isi semua data!");
+            }
+        }
+
+        function login() {
+            const username = document.getElementById("loginUsername").value.trim();
+
+            if (username && users[username]) {
+                loadUserPage(username);
+            } else {
+                alert("Nama pengguna tidak ditemukan.");
+            }
+        }
+
+        function createUserPage(username) {
+            // Membuat file index.html untuk user
+            const userPageContent = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Kirim Pesan Anonim</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 0;
+                            padding: 0;
+                            background-color: #f5f5f5;
+                        }
+
+                        .container {
+                            text-align: center;
+                            padding: 20px;
+                            background: rgba(255, 255, 255, 0.9);
+                            border-radius: 10px;
+                            max-width: 600px;
+                            margin: 50px auto;
+                        }
+
+                        textarea {
+                            width: 100%;
+                            height: 100px;
+                            margin-bottom: 15px;
+                            padding: 10px;
+                            border: 1px solid #ddd;
+                            border-radius: 5px;
+                        }
+
+                        button {
+                            padding: 10px 20px;
+                            border: none;
+                            background-color: #007BFF;
+                            color: white;
+                            cursor: pointer;
+                            border-radius: 5px;
+                        }
+
+                        button:hover {
+                            background-color: #0056b3;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Kirim Pesan Anonim ke ${username}</h1>
+                        <textarea id="messageInput" placeholder="Tulis pesan Anda..."></textarea>
+                        <button onclick="sendMessage()">Kirim Pesan</button>
+                    </div>
+
+                    <script>
+                        const botToken = '7820486438:AAFPLSlcRDK6l882rRcFikvKEO0-xcVX944';
+                        const chatId = '${users[username].chatId}';
+
+                        function sendMessage() {
+                            const message = document.getElementById("messageInput").value.trim();
+                            if (message) {
+                                fetch(\`https://api.telegram.org/bot\${botToken}/sendMessage\`, {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        chat_id: chatId,
+                                        text: 'Pesan anonim: ' + message
+                                    })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.ok) {
+                                        alert("Pesan berhasil dikirim!");
+                                        document.getElementById("messageInput").value = "";
+                                    } else {
+                                        alert("Gagal mengirim pesan!");
+                                    }
+                                })
+                                .catch(error => {
+                                    alert("Terjadi kesalahan.");
+                                    console.log(error);
+                                });
+                            } else {
+                                alert("Pesan tidak boleh kosong!");
+                            }
+                        }
+                    </script>
+                </body>
+                </html>
+            `;
+
+            // Simulasi membuat file untuk pengguna (mengunduh file)
+            const blob = new Blob([userPageContent], { type: "text/html" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `${username}.html`;
+            link.click();
+        }
+
+        function loadUserPage(username) {
+            loginForm.classList.add("hidden");
+            registerForm.classList.add("hidden");
+            userPage.classList.remove("hidden");
+
+            usernameDisplay.textContent = username;
+            userLink.textContent = `${window.location.origin}/${username}`;
+            userLink.href = `${window.location.origin}/${username}`;
+            chatIdDisplay.textContent = users[username].chatId;
+        }
+
+        function logout() {
+            userPage.classList.add("hidden");
+            loginForm.classList.remove("hidden");
+        }
+    </script>
+</body>
+          </html>
